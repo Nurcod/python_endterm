@@ -12,7 +12,7 @@ PROJECT_URL = "https://ajjbldcfukrjzivigcfq.supabase.co"
 app = FastAPI()
 current_dir = os.path.dirname(os.path.realpath(__file__))
 frontend_path = os.path.join(current_dir, "..", "frontend")
-app.mount("/frontend", StaticFiles(directory=frontend_path), name="frontend")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -54,5 +54,5 @@ async def chat(data: Message):
     return {
             "reply": "Must be more details and correct words for fully inderstanding"
         }
-
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 

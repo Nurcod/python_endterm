@@ -60,19 +60,19 @@ btn.addEventListener("click", async () => {
     const responseBox = document.getElementById("response");
 
     try {
-        const res = await fetch("http://127.0.0.1:8000/chat", {
+        const res = await fetch("/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ message })
+            
         });
         btn.disabled = true;
         btn.innerText = "Отправка...";
 
         const data = await res.json();
-
-        responseBox.innerText = data.reply;
+       responseBox.innerText = data.reply || "Нет ответа от сервера";
 
     } catch (err) {
         console.error(err);
