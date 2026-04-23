@@ -3,6 +3,7 @@ import uvicorn
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import os
+import sys
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client,Client
@@ -12,7 +13,10 @@ PROJECT_URL = "https://ajjbldcfukrjzivigcfq.supabase.co"
 app = FastAPI()
 current_dir = os.path.dirname(os.path.realpath(__file__))
 frontend_path = os.path.join(current_dir, "..", "frontend")
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+frontend_path = os.path.join(BASE_DIR, "frontend")
+print(f"Server is looking for frontend in: {frontend_path}")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
