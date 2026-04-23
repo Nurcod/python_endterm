@@ -1,5 +1,8 @@
 from fastapi import FastAPI,HTTPException
 import uvicorn
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client,Client
@@ -7,6 +10,9 @@ from message_api import api
 SECRET_KEY = "sb_secret_AZM7ADduXmdR_nqsTp920Q_-4TsVLuE"
 PROJECT_URL = "https://ajjbldcfukrjzivigcfq.supabase.co"
 app = FastAPI()
+current_dir = os.path.dirname(os.path.realpath(__file__))
+frontend_path = os.path.join(current_dir, "..", "frontend")
+app.mount("/frontend", StaticFiles(directory=frontend_path), name="frontend")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -20,8 +26,8 @@ class Register(BaseModel):
 class Message(BaseModel):
     message: str
 @app.get("/")
-def root():
-    return {"message": "OK"}
+async def read_index():
+    return FileResponse(os.path.join(frontend_path, 'register.html'))
 @app.post("/register")
 async def regist(user: Register):
     print(f"получены данные,{user.email},{user.password}")
