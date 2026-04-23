@@ -1,6 +1,6 @@
 fastapi
 uvicorn
 supabase
-python-dotenv
 aiofiles
-pydantic
+python-dotenv
+pycountry
