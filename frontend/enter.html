@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+
+<h2>Вход в аккаунт</h2>
+
+<form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <br><br>
+
+    <input type="password" id="password" placeholder="Пароль" required />
+    <br><br>
+
+    <button type="submit">Войти</button>
+</form>
+
+<script>
+const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const payload = {
+        email: email,
+        password: password
+    };
+
+    try {
+        const res = await fetch("http://127.0.0.1:8000/enter", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new Error(data.detail || "Ошибка входа");
+        }
+
+        console.log("Ответ:", data);
+
+        if (data.success) {
+            window.location.href = "dashboard.html";
+        }
+    } catch (err) {
+        console.error(err);
+        alert(err.message);
+    }
+});
+</script>
+
+</body>
+</html>
