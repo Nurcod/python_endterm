@@ -55,7 +55,7 @@ async def chat(data: Message):
     response = api.chat_api.send_message(data.message)
     if response != []:
         translate = response[1]
-        response = response[0].text
+        response = response[0]
         return {
             "reply": response + f"\nTranslate: {translate}"
         }
