@@ -3,19 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Вход</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #loginForm {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 350px;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #764ba2;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(118, 75, 162, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+        br {
+            display: none;
+        }
+
+        #email {
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        #password {
+            margin-bottom: 25px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Вход в аккаунт</h2>
-
 <form id="loginForm">
+    <h2>Enter to Account</h2>
     <input type="email" id="email" placeholder="Email" required />
     <br><br>
 
     <input type="password" id="password" placeholder="Пароль" required />
     <br><br>
 
-    <button type="submit">Войти</button>
+    <button type="submit">Enter</button>
 </form>
 
 <script>
