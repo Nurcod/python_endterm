@@ -21,7 +21,7 @@ class chat_api:
                 source=response_code,
                 target="en"
             )
-            return [response[0],result]
+            return [response[0],result.text]
         return response
 
 
