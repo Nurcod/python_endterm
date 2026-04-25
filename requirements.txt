@@ -4,3 +4,4 @@ supabase
 aiofiles
 python-dotenv
 pycountry
+langbly
