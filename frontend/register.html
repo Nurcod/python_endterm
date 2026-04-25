@@ -155,14 +155,14 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // 1. Сброс предыдущих ошибок
+            
             emailErr.innerText = "";
             passErr.innerText = "";
 
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-            // 2. Валидация
+            
             let hasError = false;
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -180,7 +180,7 @@
 
             if (hasError) return;
 
-            // 3. Отправка
+            
             try {
                 btn.disabled = true;
                 btn.innerText = "Отправка...";
