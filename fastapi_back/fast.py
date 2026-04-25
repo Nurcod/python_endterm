@@ -63,5 +63,5 @@ async def chat(data: Message):
     return {
             "reply": "Must be more details and correct words for fully inderstanding"
         }
-app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
+app.mount("/static", StaticFiles(directory=frontend_path), name="static")
 
