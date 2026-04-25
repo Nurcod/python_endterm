@@ -14,11 +14,11 @@ class chat_api:
         response = requests.post(url,headers=headers,data=data).json()['data']['detections']
         response_code = [x['language'] for x in response if x['isReliable'] == True ]
         response = [pycountry.languages.get(alpha_2=x).name for x in response_code if pycountry.languages.get(alpha_2=x)]
-        if response != 0:
+        if response != []:
             trans = Langbly(api_key="PN4oc9vZk1zMXaoJsMTyJE")
             result = trans.translate(
                 text=message,
-                source=response_code[0],
+                source=response_code,
                 target="en"
             )
             return [response[0],result]
