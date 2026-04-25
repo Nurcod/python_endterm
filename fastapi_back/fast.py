@@ -56,12 +56,12 @@ async def chat(data: Message):
     if response != []:
         
         translate = response[1]
-        response = response[0]
+        response = response[0].te
         return {
             "reply": response + f"\nTranslate: {translate}"
         }
     return {
             "reply": "Must be more details and correct words for fully inderstanding"
         }
-app.mount("/static", StaticFiles(directory=frontend_path), name="static")
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
