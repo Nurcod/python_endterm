@@ -105,6 +105,15 @@ def chat(message):
         msg = bot.send_message(message.chat.id,f"язык: {response[0]}\nПеревод:{response[1]}")
         msg = bot.send_message(message.chat.id,'Введите слово для определения(0-выход):')
         bot.register_next_step_handler(msg,chat)
+
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import threading
+
+def run_server():
+    server = HTTPServer(("0.0.0.0", 10000), BaseHTTPRequestHandler)
+    server.serve_forever()
+
+threading.Thread(target=run_server).start()
 bot.polling(none_stop=True)
     
     
