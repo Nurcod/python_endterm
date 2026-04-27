@@ -18,7 +18,6 @@ current_dir = os.path.dirname(os.path.realpath(__file__))
 frontend_path = os.path.join(current_dir, "..", "frontend")
 
 frontend_path = os.path.join(BASE_DIR, "frontend")
-print(f"Server is looking for frontend in: {frontend_path}")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -53,14 +52,10 @@ async def enter(user: Register):
 async def chat(data: Message):
     print("Получено:", data.message)
     response = api.chat_api.send_message(data.message)
-    if response != []:
-        translate = response[1]
-        response = response[0]
-        return {
-            "reply": response + f"\nTranslate: {translate}"
-        }
+    translate = response[1]
+    response = response[0]
     return {
-            "reply": "Must be more details and correct words for fully inderstanding"
-        }
+        "reply": response + f"\nTranslate: {translate}"
+    }
 app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
