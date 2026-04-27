@@ -1,6 +1,12 @@
 import telebot
 import re
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from message_api import api
 from supabase import Client,create_client
+
 SECRET_KEY = "sb_secret_AZM7ADduXmdR_nqsTp920Q_-4TsVLuE"
 PROJECT_URL = "https://ajjbldcfukrjzivigcfq.supabase.co"
 supabase: Client = create_client(PROJECT_URL,SECRET_KEY)
@@ -79,14 +85,26 @@ def observe_password(message):
     try:
         if supabase.table('users').select('password').eq('email',user_email['email']).execute().data[0]['password'] == message.text:
             bot.send_message(message.chat.id,'Вход успешно оформлен!')
+            msg = bot.send_message(message.chat.id,'Введите слово для определения(0-выход):')
+            bot.register_next_step_handler(msg,chat)
         else:
             bot.send_message(message.chat.id,'Неверный пароль попробуйте еще раз войти')
     except:
         msg = bot.send_message(message.chat.id,'Случилась тех ошибка введите пароль еще раз')
         bot.register_next_step_handler(msg,get_password)
-
- 
-
+def chat(message):
+    if message.text == '0':
+        bot.send_message(message.chat.id,'Вы успешно вышли')
+    chat_api = api.chat_api
+    response  = chat_api.send_message(message.text)
+    if response == []:
+        bot.send_message(message.chat.id,'Только слова пожалуйста')
+        msg = bot.send_message(message.chat.id,'Введите слово для определения(0-выход):')
+        bot.register_next_step_handler(msg,chat)
+    else:
+        msg = bot.send_message(message.chat.id,f"язык: {response[0]}\nПеревод:{response[1]}")
+        msg = bot.send_message(message.chat.id,'Введите слово для определения(0-выход):')
+        bot.register_next_step_handler(msg,chat)
 bot.polling(none_stop=True)
     
     
