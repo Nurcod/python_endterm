@@ -1,4 +1,5 @@
 import requests
+import pycountry
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 from langbly import Langbly
@@ -9,7 +10,10 @@ class chat_api:
             text=message,
             target="en"
         )
-        return [result.source,result.text]
-
+        if len(result.source) == 2:
+            lang = pycountry.languages.get(alpha_2=result.source)
+        else:
+            lang = pycountry.languages.get(alpha_3=result.source)
+        return [lang.name,result.text]
 
 
