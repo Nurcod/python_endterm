@@ -95,6 +95,7 @@ def observe_password(message):
 def chat(message):
     if message.text == '0':
         bot.send_message(message.chat.id,'Вы успешно вышли')
+        return
     chat_api = api.chat_api
     response  = chat_api.send_message(message.text)
     if response == []:
