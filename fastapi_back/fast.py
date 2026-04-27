@@ -52,6 +52,10 @@ async def enter(user: Register):
 async def chat(data: Message):
     print("Получено:", data.message)
     response = api.chat_api.send_message(data.message)
+    if response == []:
+        return {
+        "reply": 'More words please'
+    }
     translate = response[1]
     response = response[0]
     return {
