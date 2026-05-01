@@ -6,9 +6,9 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from message_api import api
 from supabase import Client,create_client
-
 SECRET_KEY = "sb_secret_AZM7ADduXmdR_nqsTp920Q_-4TsVLuE"
 PROJECT_URL = "https://ajjbldcfukrjzivigcfq.supabase.co"
+
 supabase: Client = create_client(PROJECT_URL,SECRET_KEY)
 bot = telebot.TeleBot(token='8265864879:AAF3BFmQOErTMle0ECY_HUHRu56Xrn3xfKA')
 user_email = {}
@@ -113,10 +113,7 @@ import threading
 def run_server():
     server = HTTPServer(("0.0.0.0", 10000), BaseHTTPRequestHandler)
     server.serve_forever()
-   
 threading.Thread(target=run_server).start()
 bot.polling(none_stop=True)
-    
-    
 
 

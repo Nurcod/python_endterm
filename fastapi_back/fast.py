@@ -18,12 +18,14 @@ current_dir = os.path.dirname(os.path.realpath(__file__))
 frontend_path = os.path.join(current_dir, "..", "frontend")
 
 frontend_path = os.path.join(BASE_DIR, "frontend")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
     allow_methods=["*"],
     allow_headers=["*"],
-)
+    )
+
 supabase: Client = create_client(PROJECT_URL,SECRET_KEY)
 class Register(BaseModel):
     email: str
