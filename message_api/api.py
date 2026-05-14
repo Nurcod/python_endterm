@@ -6,7 +6,7 @@ from langbly import Langbly
 class chat_api:
     def send_message(message:str):
         message = message.strip()
-        if message.isdigit() == True or message.isspace() == True or message.isalpha() == 0:
+        if message.isdigit() == True or message.isspace() == True:
             return []
         trans = Langbly(api_key="PN4oc9vZk1zMXaoJsMTyJE")
         result = trans.translate(
