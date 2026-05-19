@@ -167,15 +167,18 @@ Bot: **using fact ninja API for random facts**
 
 ### Web Application
 
-<!-- Add your web interface screenshot here -->
-```
-[ Screenshot placeholder — add your image as /assets/web_interface.png ]
-```
+![web_register](images/image copy.png)
+![web_enter](images/image copy2.png)
+![web_dashboard](images/image copy3.png)
 
 ### Telegram Bot
 
 
-![Главный экран веб-сайта](images/image.png)
+![chatbot](images/image.png)
+![chatbot](images/image1.png)
+![chatbot](images/image2.png)
+![chatbot](images/image4.png)
+
 
 
 ---
