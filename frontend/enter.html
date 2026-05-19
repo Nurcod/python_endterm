@@ -127,7 +127,7 @@ form.addEventListener("submit", async (e) => {
         const data = await res.json();
 
         if (!res.ok) {
-            throw new Error(data.detail || "Ошибка входа");
+            throw new Error(data.detail || "enter error");
         }
 
         console.log("Ответ:", data);

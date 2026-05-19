@@ -135,7 +135,7 @@
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Минимум 8 символов">
+                <input type="password" id="password" placeholder="minimum 8 length">
                 <span id="passwordError" class="error-text"></span>
             </div>
 
@@ -183,7 +183,7 @@
             
             try {
                 btn.disabled = true;
-                btn.innerText = "Отправка...";
+                btn.innerText = "sending...";
 
                 const res = await fetch('/register', {
                     method: 'POST',
@@ -194,17 +194,17 @@
                 const data = await res.json();
 
                 if (!res.ok) {
-                    emailErr.innerText = data.detail || "Ошибка регистрации";
+                    emailErr.innerText = data.detail || "register error";
                 } else {
-                    alert("Регистрация успешна!");
+                    alert("register succesfully!");
                     form.reset();
                 }
 
             } catch (err) {
-                emailErr.innerText = "Сервер недоступен";
+                emailErr.innerText = "server is not acces";
             } finally {
                 btn.disabled = false;
-                btn.innerText = "Создать аккаунт";
+                btn.innerText = "create account";
             }
         });
     </script>

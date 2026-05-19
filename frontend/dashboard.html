@@ -75,7 +75,7 @@
     <div class="chat-card">
         <div class="row g-4">
             <div class="col-md-6">
-                <textarea id="message" class="form-control" placeholder="Введите сообщение..."></textarea>
+                <textarea id="message" class="form-control" placeholder="send message..."></textarea>
                 <button id="sendBtn" class="btn btn-primary btn-submit w-100">Submit</button>
             </div>
             <div class="col-md-6">
@@ -102,14 +102,14 @@ btn.addEventListener("click", async () => {
             
         });
         btn.disabled = true;
-        btn.innerText = "Отправка...";
+        btn.innerText = "sending...";
 
         const data = await res.json();
-       responseBox.innerText = data.reply || "Нет ответа от сервера";
+       responseBox.innerText = data.reply || "answer from server is not";
 
     } catch (err) {
         console.error(err);
-        responseBox.innerText = "Ошибка запроса";
+        responseBox.innerText = "request error";
     }
     finally {
                 btn.disabled = false;

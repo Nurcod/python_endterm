@@ -6,3 +6,4 @@ python-dotenv
 pycountry
 langbly
 telebot
+requests
