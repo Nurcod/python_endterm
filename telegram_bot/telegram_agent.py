@@ -94,7 +94,6 @@ def get_password(message):
             bot.register_next_step_handler(msg,get_password)
 @bot.message_handler(commands=['enter'])
 def enter(message):
-    
     msg = bot.send_message(message.chat.id,'email:')
     bot.register_next_step_handler(msg,observe_email)
 def observe_email(message):

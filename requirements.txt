@@ -1,9 +1,9 @@
 fastapi
 uvicorn
 supabase
-aiofiles
-python-dotenv
 pycountry
 langbly
 telebot
 requests
+re
+threading
