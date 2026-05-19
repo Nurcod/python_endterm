@@ -82,9 +82,7 @@ pip install -r requirements.txt
 ```
 
 **5. Configure environment variables**
-
-Create a `.env` file in the root directory:
-```env
+```
 TELEGRAM_TOKEN=your_telegram_bot_token
 DATABASE_URL=your_supabase_postgresql_url
 ```
