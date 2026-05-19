@@ -72,6 +72,7 @@ def get_email(message):
                     bot.send_message(message.chat.id,'A user with this email is already registered!')
             else:
                 supabase.table('users').insert({'email':message.text}).execute()
+                user_email[f"{message.chat.id}"] = {}
                 user_email[f"{message.chat.id}"]['email'] = message.text
                 msg = bot.send_message(message.chat.id,'Write your password (length 8 characters, 1 capital letter, number and special character):')
                 bot.register_next_step_handler(msg,get_password)
@@ -148,16 +149,15 @@ def chat(message):
 def unknown(message):
     bot.reply_to(message, "Hello, you entered an incorrect command or message. Type /start to view the information.")
 
-# from http.server import BaseHTTPRequestHandler, HTTPServer
-# import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import threading
 
-# def run_server():
-#     server = HTTPServer(("0.0.0.0", 10000), BaseHTTPRequestHandler)
-#     server.serve_forever()
-# threading.Thread(target=run_server).start()
+def run_server():
+    server = HTTPServer(("0.0.0.0", 10000), BaseHTTPRequestHandler)
+    server.serve_forever()
+threading.Thread(target=run_server).start()
 
-if __name__ == "__main__":
-    bot.remove_webhook()
-    bot.infinity_polling(skip_pending=True)
+
+bot.infinity_polling(skip_pending=True)
 
 
