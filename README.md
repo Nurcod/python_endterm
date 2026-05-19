@@ -175,9 +175,7 @@ Bot: **using fact ninja API for random facts**
 ### Telegram Bot
 
 ```
-<p align="center">
-  <img src="images/image.png">
-</p>
+![Главный экран веб-сайта](images/image.png)
 ```
 
 ---
