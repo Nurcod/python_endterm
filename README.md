@@ -54,13 +54,6 @@ The system identifies the language of any input text with **high accuracy** usin
 
 ## ⚙️ Installation
 
-### Prerequisites
-- Python **3.12.7** or higher
-- pip package manager
-- A Telegram Bot token (from [@BotFather](https://t.me/BotFather))
-
-### Steps
-
 **1. Clone the repository**
 ```bash
 git clone https://github.com/your-username/multilingual-language-auto-identifier.git
