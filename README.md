@@ -167,9 +167,9 @@ Bot: **using fact ninja API for random facts**
 
 ### Web Application
 
-![web_register](images/image copy.png)
-![web_enter](images/image copy2.png)
-![web_dashboard](images/image copy3.png)
+![web_register](images/imagecopy.png)
+![web_enter](images/imagecopy2.png)
+![web_dashboard](images/imagecopy3.png)
 
 ### Telegram Bot
 
