@@ -174,9 +174,10 @@ Bot: **using fact ninja API for random facts**
 
 ### Telegram Bot
 
-<!-- Add your Telegram bot screenshot here -->
 ```
-[ Screenshot placeholder — add your image as /assets/telegram_bot.png ]
+<p align="center">
+  <img src="images/image.png">
+</p>
 ```
 
 ---
