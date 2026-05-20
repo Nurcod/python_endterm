@@ -5,5 +5,3 @@ pycountry
 langbly
 telebot
 requests
-re
-threading
