@@ -36,7 +36,6 @@ The system identifies the language of any input text with **high accuracy** usin
 | **Telebot** | Telegram bot integration |
 | **requests** | HTTP client for REST API calls |
 | **re** | Regular expressions for string parsing |
-| **threading** | Runs bot and server simultaneously |
 
 ### Frontend
 | Technology | Purpose |
